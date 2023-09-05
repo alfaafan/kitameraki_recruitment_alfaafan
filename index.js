@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import "dotenv/config.js";
+import router from "./routes/index.js";
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -20,6 +21,8 @@ const connectDB = async () => {
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+app.use("/api/v1", router);
 
 connectDB().then(() => {
   app.listen(port, () => {
