@@ -1,5 +1,5 @@
 import Task from "../models/task.model.js";
 
-export const getTaskById = async (id) => {
+export const getTaskByIdService = async (id) => {
   return await Task.findById(id);
 };
