@@ -5,6 +5,7 @@ import { getTaskByIdService } from "../services/getTaskById.service.js";
 import { getTasksService } from "../services/getTasks.service.js";
 import { patchTaskService } from "../services/patchTask.service.js";
 import { error, success } from "../utils/apiResponse.js";
+import { v4 as uuidv4 } from "uuid";
 
 export const getAllTasks = async (req, res) => {
   const page = parseInt(req.query.page) || 1;
@@ -20,7 +21,7 @@ export const getAllTasks = async (req, res) => {
 
 export const getTaskById = async (req, res) => {
   try {
-    const taskId = req.params.id;
+    const taskId = req.params._id;
     const task = await getTaskByIdService(taskId);
 
     if (!task) {
@@ -54,7 +55,7 @@ export const postTask = async (req, res) => {
 
 export const patchTask = async (req, res) => {
   try {
-    const taskId = req.params.id;
+    const taskId = req.params._id;
     const updatedTask = req.body;
 
     if (Object.keys(updatedTask).length === 0) {
@@ -70,7 +71,7 @@ export const patchTask = async (req, res) => {
 
 export const deleteTask = async (req, res) => {
   try {
-    const taskId = req.params.id;
+    const taskId = req.params._id;
     const deletedTask = await deleteTaskService(taskId);
 
     res.status(204).json(success("Task deleted"));

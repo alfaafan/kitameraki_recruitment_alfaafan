@@ -1,14 +1,13 @@
 import mongoose from "mongoose";
 const { Schema, model } = mongoose;
-import { randomUUID } from "crypto";
+import { v4 as uuidv4 } from "uuid";
 
 const taskSchema = new Schema(
   {
-    id: {
-      type: Schema.Types.UUID,
+    _id: {
+      type: Schema.Types.String,
       required: true,
-      unique: true,
-      default: () => randomUUID(),
+      default: uuidv4,
     },
     title: {
       type: Schema.Types.String,
@@ -21,6 +20,7 @@ const taskSchema = new Schema(
     },
     dueDate: {
       type: Schema.Types.Date,
+      default: () => Date.now(),
     },
     priority: {
       type: Schema.Types.String,
@@ -38,15 +38,9 @@ const taskSchema = new Schema(
   },
   {
     strict: "throw",
+    timestamps: true,
   }
 );
-
-taskSchema.virtual("_id").get(function () {
-  return this.id;
-});
-
-taskSchema.set("toObject", { virtuals: true });
-taskSchema.set("toJSON", { virtuals: true });
 
 const Task = model("Task", taskSchema);
 
