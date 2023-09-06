@@ -63,6 +63,11 @@ export const patchTask = async (req, res) => {
     }
 
     const patchedTask = await patchTaskService(taskId, updatedTask);
+
+    if (!patchedTask) {
+      return res.status(404).json(error("Task not found"));
+    }
+
     res.status(200).json(success("Task updated", patchedTask));
   } catch (e) {
     res.status(500).json(error(e.message));
@@ -73,6 +78,10 @@ export const deleteTask = async (req, res) => {
   try {
     const taskId = req.params._id;
     const deletedTask = await deleteTaskService(taskId);
+
+    if (!deletedTask) {
+      return res.status(404).json(error("Task not found"));
+    }
 
     res.status(204).json(success("Task deleted"));
   } catch (e) {
