@@ -17,6 +17,7 @@ const taskSchema = new Schema(
     description: {
       type: Schema.Types.String,
       maxLength: 1000,
+      default: "",
     },
     dueDate: {
       type: Schema.Types.Date,

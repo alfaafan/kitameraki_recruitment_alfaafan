@@ -13,6 +13,11 @@ export const getAllTasks = async (req, res) => {
 
   try {
     const tasks = await getPaginatedTasksService(page, pageSize);
+
+    if (page > tasks.totalPages) {
+      res.status(400).json(error("Invalid page number"));
+    }
+
     res.status(200).json(success("Tasks retrieved", tasks));
   } catch (e) {
     res.status(500).json(error(e.message));
