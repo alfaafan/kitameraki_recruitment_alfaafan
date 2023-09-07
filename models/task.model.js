@@ -20,8 +20,8 @@ const taskSchema = new Schema(
       default: "",
     },
     dueDate: {
-      type: Schema.Types.Date,
-      default: () => Date.now(),
+      type: Schema.Types.String,
+      default: () => new Date().toISOString(),
     },
     priority: {
       type: Schema.Types.String,
