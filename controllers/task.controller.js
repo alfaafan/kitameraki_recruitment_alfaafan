@@ -2,10 +2,8 @@ import { createTaskService } from "../services/createTask.service.js";
 import { deleteTaskService } from "../services/deleteTask.service.js";
 import { getPaginatedTasksService } from "../services/getPaginatedTasks.service.js";
 import { getTaskByIdService } from "../services/getTaskById.service.js";
-import { getTasksService } from "../services/getTasks.service.js";
 import { patchTaskService } from "../services/patchTask.service.js";
 import { error, success } from "../utils/apiResponse.js";
-import { v4 as uuidv4 } from "uuid";
 
 export const getAllTasks = async (req, res) => {
   const page = parseInt(req.query.page) || 1;
