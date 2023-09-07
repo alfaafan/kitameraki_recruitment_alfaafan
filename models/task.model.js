@@ -25,11 +25,13 @@ const taskSchema = new Schema(
     priority: {
       type: Schema.Types.String,
       enum: ["low", "medium", "high"],
+      default: "low",
     },
     status: {
       type: Schema.Types.String,
       enum: ["todo", "in-progress", "completed"],
       required: true,
+      default: "todo",
     },
     tags: {
       type: [Schema.Types.String],
