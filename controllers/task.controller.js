@@ -3,7 +3,7 @@ import { deleteTaskService } from "../services/deleteTask.service.js";
 import { getPaginatedTasksService } from "../services/getPaginatedTasks.service.js";
 import { getTaskByIdService } from "../services/getTaskById.service.js";
 import { patchTaskService } from "../services/patchTask.service.js";
-import { error, success } from "../utils/apiResponse.js";
+import { error, success } from "../utils/apiResponse.utils.js";
 
 export const getAllTasks = async (req, res) => {
   const page = parseInt(req.query.page) || 1;
