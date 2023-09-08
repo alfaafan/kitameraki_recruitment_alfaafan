@@ -1,4 +1,3 @@
-import bcrypt from "bcrypt";
 import { register } from "../services/register.service.js";
 import { error, success } from "../utils/apiResponse.js";
 import { login } from "../services/login.service.js";
@@ -27,6 +26,14 @@ export const userLogin = async (req, res) => {
       return res.status(401).json(error(user.message));
     }
     res.status(200).json(success(user.message, user.data));
+  } catch (e) {
+    res.status(500).json(error(e.message));
+  }
+};
+
+export const userLogout = (req, res) => {
+  try {
+    res.status(200).json(success("User logged out"));
   } catch (e) {
     res.status(500).json(error(e.message));
   }
