@@ -33,10 +33,10 @@ function Tasks() {
 
   return (
     <Layout>
-      <h2>Task list</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <h2 className="text-center text-5xl font-bold my-8">Task list</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 place-items-center">
         {tasks.map((task) => (
-          <TaskItem key={task._id} title={task.title} description={task.description} dueDate={task.dueDate} priority={task.priority} status={task.status} />
+          <TaskItem key={task._id} title={task.title} description={task.description} dueDate={task.dueDate} priority={task.priority} status={task.status} tags={task.tags} />
         ))}
       </div>
     </Layout>

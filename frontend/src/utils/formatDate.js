@@ -14,8 +14,3 @@ export default function convertTimestampToDateFormat(timestampString, format = "
 
   return format;
 }
-
-// Example usage:
-const timestampString = "2023-09-09T07:52:58.900Z";
-const formattedDate = convertTimestampToDateFormat(timestampString);
-console.log(formattedDate);
