@@ -70,6 +70,7 @@ The `middlewares` folder contains custom middleware functions. Middleware functi
 The `tests` folder typically used to house test scripts and test-related files for testing the functionality of the application's code.
 
 ## API endpoints
+The API endpoints list can be accessed through <http://localhost:3000/api/v1/api-docs/> 
 
 ## How to Use
 To start the API, run the following command in the terminal:
