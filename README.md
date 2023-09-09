@@ -80,3 +80,9 @@ yarn dev
 ```
 
 The API server will start, and you can access the app at `http://localhost:3000` (assuming the default port is used).
+
+## How to run tests
+Since I used ES6 modules for the project, the tests in the part one branch can be run with: 
+```
+yarn node --experimental-vm-modules node_modules/jest/bin/jest.js
+```
