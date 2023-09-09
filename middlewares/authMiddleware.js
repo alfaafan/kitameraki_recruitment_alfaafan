@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 import { error } from "../utils/apiResponse.utils.js";
 import { jwtSecret } from "../utils/jwt.utils.js";
 
-export function verifyToken(req, res, next) {
+export function authMiddleware(req, res, next) {
   const authorized = req.headers["authorization"];
 
   if (!authorized) {
