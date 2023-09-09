@@ -7,12 +7,10 @@ function TaskItem({ title, description, dueDate, priority, status, tags }) {
       <div className="card-body">
         <h2 className="card-title text-2xl font-semibold mb-2">{title}</h2>
         <p className="text-gray-400 mb-2">{description}</p>
-        {/* <div className="flex justify-between my-3"> */}
         <p className="text-white">Priority:</p>
         <div className="badge badge-outline badge-success">{priority}</div>
         <p className="text-white">Status:</p>
         <div className="badge badge-outline badge-warning">{status}</div>
-        {/* </div> */}
         <p className="text-white">Tags:</p>
         <div className="flex gap-2">
           {tags.map((tag, index) => (

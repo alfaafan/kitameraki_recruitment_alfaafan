@@ -22,7 +22,6 @@ function CreateTask() {
   const handleCreateTask = async (e) => {
     e.preventDefault();
     try {
-      console.log(newTask);
       const response = await axios.post("http://localhost:3000/api/v1/tasks", newTask);
       setNewTask({
         title: "",
@@ -31,6 +30,9 @@ function CreateTask() {
         status: "",
         tags: [],
       });
+      if (response.data.success) {
+        alert("Task created, go to Tasks page to see");
+      }
     } catch (e) {
       console.error(e);
     }
@@ -52,7 +54,7 @@ function CreateTask() {
             <label className="label">
               <span className="label-text">Priority:</span>
             </label>
-            <select className="select select-bordered" name="priority" value={newTask.priority} onChange={handleInputChange}>
+            <select className="select select-bordered" name="priority" value={newTask.priority} onChange={handleInputChange} defaultValue="low">
               <option value="low">Low</option>
               <option value="medium">Medium</option>
               <option value="high">High</option>
@@ -60,7 +62,7 @@ function CreateTask() {
             <label className="label">
               <span className="label-text">Status:</span>
             </label>
-            <select className="select select-bordered" name="status" value={newTask.status} onChange={handleInputChange}>
+            <select className="select select-bordered" name="status" value={newTask.status} onChange={handleInputChange} defaultValue="todo">
               <option value="todo">Todo</option>
               <option value="in-progress">In-progress</option>
               <option value="completed">Completed</option>
