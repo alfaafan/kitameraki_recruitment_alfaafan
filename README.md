@@ -1,6 +1,10 @@
 # Programming Test for Kitameraki Developer Position
 This is a repository for Kitameraki recruitment process. This project is divided into 2 parts. You can click links below to navigate to the project's branches.
 
+For part one, the assignment is to create the backend of a Task Management App. The application allows users to add, view, update, and delete tasks. I use Node.js with express framework, and mongoDB with mongoose ODM for the backend.
+
+For part two, the assignment is to implement basic authentication and authorization using JWT for the API created in part one.
+
 ## Branches
 - [Part One](https://github.com/alfaafan/kitameraki_recruitment_alfaafan/tree/part_one)
 - [Part Two](https://github.com/alfaafan/kitameraki_recruitment_alfaafan/tree/part_two)
